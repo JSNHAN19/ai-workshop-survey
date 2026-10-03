@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Availability</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F5D50}a:hover{color:#1F4238}
+</style>
+</helmet>
+<div style="width: 1280px; height: 920px; box-sizing: border-box; background: #F7F6F2; color: #1C1C1A; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column">
+  <header style="height: 64px; flex-shrink: 0; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E3E1DA; position: relative">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <span style="font-family: 'Source Serif 4', serif; font-style: italic; font-size: 20px; color: #2F5D50">AI</span>
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em">WORKSHOP</span>
+      <span style="width: 1px; height: 16px; background: #D6D3CA"></span>
+      <span style="font-size: 13px; color: #6B6A65">Pre-session survey</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 24px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6B6A65">SECTION 06 / 07</span>
+      <div style="display: flex; padding: 3px; border: 1px solid #E3E1DA; border-radius: 999px; background: #FFFFFF">
+        <button aria-pressed="true" style="height: 32px; min-width: 44px; padding: 0 12px; border: none; border-radius: 999px; background: #1C1C1A; color: #FFFFFF; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer">EN</button>
+        <button aria-pressed="false" style="height: 32px; min-width: 44px; padding: 0 12px; border: none; border-radius: 999px; background: transparent; color: #6B6A65; font-family: 'IBM Plex Sans KR', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer">한</button>
+      </div>
+    </div>
+    <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 86%; background: #2F5D50"></div>
+  </header>
+
+  <main style="flex-grow: 1; display: flex; justify-content: center; padding: 36px 80px 0">
+    <div style="width: 1120px; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); column-gap: 40px; border-top: 1px solid #1C1C1A; padding-top: 20px">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #2F5D50">Q · 21</span>
+          <span style="font-size: 13px; line-height: 1.45; color: #6B6A65">How you<br>like to learn</span>
+        </div>
+        <h1 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 500; font-size: 32px; line-height: 1.22; letter-spacing: -0.01em">When are you generally available for a 60–90 minute Zoom session?</h1>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 40px; align-items: start">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 4px" role="grid" aria-label="Weekly availability">
+            <div style="display: grid; grid-template-columns: 64px repeat(7, minmax(0, 1fr)) 92px; gap: 4px; align-items: end; padding-bottom: 6px">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B6A65">CHICAGO</span>
+              <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #1C1C1A; text-align: center">{{d}}</span>
+              </sc-for>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #2F5D50; text-align: right">SEOUL</span>
+            </div>
+            <sc-for list="{{rows}}" as="row" hint-placeholder-count="16">
+              <div style="display: grid; grid-template-columns: 64px repeat(7, minmax(0, 1fr)) 92px; gap: 4px; height: 26px; align-items: center" role="row">
+                <span style="font-size: 12px; color: #3D3C38">{{row.label}}</span>
+                <sc-for list="{{row.cells}}" as="cell" hint-placeholder-count="7">
+                  <sc-if value="{{cell.on}}" hint-placeholder-val="{{false}}">
+                    <button aria-label="{{cell.aria}}" aria-pressed="true" onClick="{{cell.toggle}}" style="height: 26px; padding: 0; border: none; border-radius: 4px; background: #2F5D50; cursor: pointer; display: flex; align-items: center; justify-content: center">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                    </button>
+                  </sc-if>
+                  <sc-if value="{{cell.free}}" hint-placeholder-val="{{true}}">
+                    <button aria-label="{{cell.aria}}" aria-pressed="false" onClick="{{cell.toggle}}" style="height: 26px; padding: 0; box-sizing: border-box; border: 1px solid #E3E1DA; border-radius: 4px; background: #FFFFFF; cursor: pointer"></button>
+                  </sc-if>
+                  <sc-if value="{{cell.off}}" hint-placeholder-val="{{false}}">
+                    <button aria-label="{{cell.aria}}" disabled="{{true}}" title="Outside the instructor's available hours" style="height: 26px; padding: 0; box-sizing: border-box; border: 1px solid #ECEAE3; border-radius: 4px; background: repeating-linear-gradient(135deg, #ECEAE3 0 3px, #F7F6F2 3px 7px); cursor: not-allowed"></button>
+                  </sc-if>
+                </sc-for>
+                <span style="display: flex; justify-content: flex-end; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #2F5D50">{{row.kst}}
+                  <sc-if value="{{row.plus}}" hint-placeholder-val="{{false}}"><span style="font-size: 9px; padding: 1px 4px; border-radius: 3px; background: #E6EEEA; color: #2F5D50">+1</span></sc-if>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 20px; padding-top: 6px; font-size: 13px; color: #6B6A65">
+            <span style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; box-sizing: border-box; border: 1px solid #D6D3CA; border-radius: 3px; background: #FFFFFF"></span>Available to pick</span>
+            <span style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 3px; background: #2F5D50"></span>Selected</span>
+            <span style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; box-sizing: border-box; border: 1px solid #ECEAE3; border-radius: 3px; background: repeating-linear-gradient(135deg, #DCD9D1 0 2px, #F7F6F2 2px 5px)"></span>Outside instructor's hours</span>
+          </div>
+        </div>
+
+        <aside style="display: flex; flex-direction: column; gap: 16px">
+          <div style="background: #FFFFFF; border: 1px solid #E3E1DA; border-radius: 12px; overflow: hidden">
+            <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #6B6A65">YOU · CHICAGO</span>
+              <span style="font-family: 'Source Serif 4', serif; font-size: 34px; line-height: 1.1">1:34 <span style="font-size: 18px; color: #6B6A65">AM</span></span>
+              <span style="font-size: 13px; color: #6B6A65">Saturday, Oct 3</span>
+            </div>
+            <div style="height: 1px; background: #E3E1DA; position: relative">
+              <span style="position: absolute; right: 20px; top: -11px; height: 22px; padding: 0 10px; display: flex; align-items: center; border-radius: 999px; background: #2F5D50; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 11px">+14 h</span>
+            </div>
+            <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; background: #FBFBF9">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #2F5D50">JASON · SEOUL</span>
+              <span style="font-family: 'Source Serif 4', serif; font-size: 34px; line-height: 1.1">3:34 <span style="font-size: 18px; color: #6B6A65">PM</span></span>
+              <span style="font-size: 13px; color: #6B6A65">Saturday, Oct 3</span>
+            </div>
+          </div>
+          <div style="font-size: 13px; color: #6B6A65; display: flex; justify-content: space-between">
+            <span>Your time zone: <span style="color: #1C1C1A">Central (Chicago)</span></span>
+            <a href="#tz" style="font-weight: 500">Change</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #E3E1DA; padding-top: 16px">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #2F5D50">{{count}} TIME SLOTS SELECTED</span>
+            <sc-for list="{{chips}}" as="ch" hint-placeholder-count="3">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; background: #FFFFFF; border: 1px solid #E3E1DA; border-radius: 8px">
+                <div style="display: flex; flex-direction: column; gap: 2px">
+                  <span style="font-size: 14px; font-weight: 500">{{ch.local}}</span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #2F5D50">{{ch.kst}}</span>
+                </div>
+                <button aria-label="Remove time slot" onClick="{{ch.remove}}" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 6px; cursor: pointer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6A65" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+              </div>
+            </sc-for>
+          </div>
+
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #6B6A65">Any other scheduling notes? (optional)
+            <input type="text" placeholder="e.g., Not available Nov 20–30" style="height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #E3E1DA; border-radius: 8px; background: #FFFFFF; font-family: inherit; font-size: 14px; color: #1C1C1A">
+          </label>
+
+          <button style="height: 48px; padding: 0 24px; background: #2F5D50; color: #FFFFFF; border: none; border-radius: 8px; font-family: inherit; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">OK
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          </button>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer style="height: 64px; flex-shrink: 0; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #E3E1DA">
+    <button style="height: 44px; padding: 0; background: none; border: none; font-family: inherit; font-size: 15px; color: #6B6A65; cursor: pointer">← Back</button>
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #6B6A65">Arrows move · Space selects · ↵ continue</span>
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #1C1C1A">21 <span style="color: #8A877F">/ 24</span></span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const OFFSET = 15;
+    const HOST_START = 8;
+    const sel = (this.state && this.state.sel) || ["1-19", "1-20", "3-19", "3-20", "5-8"];
+    const num = (h) => (h % 12 === 0 ? 12 : h % 12);
+    const sfx = (h) => ((h % 24) < 12 ? "AM" : "PM");
+    const fmt = (h) => num(h) + " " + sfx(h);
+    const rng = (a, b) => (sfx(a) === sfx(b) ? num(a) + "–" + num(b) + " " + sfx(b) : fmt(a) + "–" + fmt(b));
+    const setSel = (next) => this.setState({ sel: next });
+    const toggle = (key) => {
+      const cur = sel.slice();
+      const i = cur.indexOf(key);
+      if (i >= 0) cur.splice(i, 1); else cur.push(key);
+      setSel(cur);
+    };
+    const rows = [];
+    for (let h = 7; h <= 22; h++) {
+      const k = h + OFFSET;
+      const kh = k % 24;
+      const plus = k >= 24;
+      const cells = DAYS.map((d, i) => {
+        const key = i + "-" + h;
+        const off = kh < HOST_START;
+        const on = !off && sel.indexOf(key) >= 0;
+        const kDay = DAYS[(i + (plus ? 1 : 0)) % 7];
+        return {
+          on: on,
+          free: !off && !on,
+          off: off,
+          aria: d + " " + fmt(h) + " your time, " + kDay + " " + fmt(kh) + " in Seoul",
+          toggle: () => toggle(key)
+        };
+      });
+      rows.push({ label: fmt(h), kst: fmt(kh), plus: plus, cells: cells });
+    }
+    const chips = [];
+    DAYS.forEach((d, i) => {
+      let h = 7;
+      while (h <= 22) {
+        if (sel.indexOf(i + "-" + h) >= 0) {
+          let e = h;
+          while (e + 1 <= 22 && sel.indexOf(i + "-" + (e + 1)) >= 0) e++;
+          const s = h;
+          const end = e + 1;
+          const ks = s + OFFSET;
+          const ke = end + OFFSET;
+          const kDay = DAYS[(i + Math.floor(ks / 24)) % 7];
+          const keys = [];
+          for (let x = s; x <= e; x++) keys.push(i + "-" + x);
+          chips.push({
+            local: d + " · " + rng(s, end),
+            kst: kDay + " " + rng(ks % 24, ke % 24 === 0 ? 24 : ke % 24) + " KST",
+            remove: () => setSel(sel.filter((key) => keys.indexOf(key) < 0))
+          });
+          h = e + 1;
+        } else {
+          h++;
+        }
+      }
+    });
+    return { days: DAYS, rows: rows, chips: chips, count: sel.length };
+  }
+}
+</script>
+</body>
+</html>

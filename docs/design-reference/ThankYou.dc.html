@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thank you</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F5D50}a:hover{color:#1F4238}
+</style>
+</helmet>
+<div style="width: 1280px; height: 800px; box-sizing: border-box; background: #F7F6F2; color: #1C1C1A; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column">
+  <header style="height: 64px; flex-shrink: 0; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E3E1DA; position: relative">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <span style="font-family: 'Source Serif 4', serif; font-style: italic; font-size: 20px; color: #2F5D50">AI</span>
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em">WORKSHOP</span>
+      <span style="width: 1px; height: 16px; background: #D6D3CA"></span>
+      <span style="font-size: 13px; color: #6B6A65">Pre-session survey</span>
+    </div>
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #2F5D50">COMPLETE</span>
+    <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: #2F5D50"></div>
+  </header>
+
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 0 120px">
+    <div style="width: 720px; display: flex; flex-direction: column; align-items: flex-start; gap: 28px">
+      <div style="width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid #2F5D50; display: flex; align-items: center; justify-content: center">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      </div>
+      <h1 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 400; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em">Thank you, <span style="font-style: italic; color: #2F5D50">[Name]</span>.</h1>
+      <p style="margin: 0; font-size: 22px; line-height: 1.5; color: #3D3C38">I'll be in touch soon!</p>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

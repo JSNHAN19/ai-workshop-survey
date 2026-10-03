@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile — availability</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F5D50}a:hover{color:#1F4238}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F6F2; color: #1C1C1A; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow: hidden">
+  <header style="height: 52px; flex-shrink: 0; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E3E1DA; position: relative">
+    <span style="font-family: 'Source Serif 4', serif; font-style: italic; font-size: 20px; color: #2F5D50">AI</span>
+    <div style="display: flex; align-items: center; gap: 14px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6B6A65">06 / 07</span>
+      <div style="display: flex; padding: 2px; border: 1px solid #E3E1DA; border-radius: 999px; background: #FFFFFF">
+        <button aria-pressed="true" style="height: 30px; min-width: 40px; padding: 0 10px; border: none; border-radius: 999px; background: #1C1C1A; color: #FFFFFF; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 600">EN</button>
+        <button aria-pressed="false" style="height: 30px; min-width: 40px; padding: 0 10px; border: none; border-radius: 999px; background: transparent; color: #6B6A65; font-family: 'IBM Plex Sans KR', sans-serif; font-size: 13px">한</button>
+      </div>
+    </div>
+    <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 86%; background: #2F5D50"></div>
+  </header>
+
+  <main style="flex-grow: 1; box-sizing: border-box; padding: 24px 20px 20px; display: flex; flex-direction: column; gap: 18px; overflow: hidden">
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: #2F5D50; border-top: 1px solid #1C1C1A; padding-top: 14px">Q · 21 <span style="color: #6B6A65">— How you like to learn</span></span>
+    <h1 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 500; font-size: 24px; line-height: 1.25; letter-spacing: -0.01em">When are you generally available for a 60–90 minute Zoom session?</h1>
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #FFFFFF; border: 1px solid #E3E1DA; border-radius: 12px; overflow: hidden">
+        <div style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B6A65">YOU · CHICAGO</span>
+          <span style="font-family: 'Source Serif 4', serif; font-size: 22px; line-height: 1.2">1:34 <span style="font-size: 13px; color: #6B6A65">AM Sat</span></span>
+        </div>
+        <div style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; border-left: 1px solid #E3E1DA; background: #FBFBF9">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #2F5D50">JASON · SEOUL</span>
+          <span style="font-family: 'Source Serif 4', serif; font-size: 22px; line-height: 1.2">3:34 <span style="font-size: 13px; color: #6B6A65">PM Sat</span></span>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: #6B6A65; display: flex; justify-content: space-between">
+        <span>Central (Chicago)</span>
+        <a href="#tz" style="font-weight: 500">Change</a>
+      </div>
+    </div>
+
+    <div role="tablist" aria-label="Day" style="display: flex; gap: 6px; overflow: hidden">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="7">
+        <sc-if value="{{t.active}}" hint-placeholder-val="{{false}}">
+          <button role="tab" aria-selected="true" onClick="{{t.pick}}" style="flex-shrink: 0; min-width: 44px; height: 44px; padding: 0 10px; border: none; border-radius: 8px; background: #1C1C1A; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px">{{t.label}}<sc-if value="{{t.has}}" hint-placeholder-val="{{false}}"><span style="width: 5px; height: 5px; border-radius: 50%; background: #9CC2B5"></span></sc-if></button>
+        </sc-if>
+        <sc-if value="{{t.idle}}" hint-placeholder-val="{{true}}">
+          <button role="tab" aria-selected="false" onClick="{{t.pick}}" style="flex-shrink: 0; min-width: 44px; height: 44px; padding: 0 10px; box-sizing: border-box; border: 1px solid #E3E1DA; border-radius: 8px; background: #FFFFFF; color: #1C1C1A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px">{{t.label}}<sc-if value="{{t.has}}" hint-placeholder-val="{{false}}"><span style="width: 5px; height: 5px; border-radius: 50%; background: #2F5D50"></span></sc-if></button>
+        </sc-if>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+        <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; align-items: center">
+          <span style="font-size: 13px; color: #3D3C38">{{r.label}}</span>
+          <sc-if value="{{r.on}}" hint-placeholder-val="{{false}}">
+            <button aria-pressed="true" onClick="{{r.toggle}}" style="height: 44px; padding: 0 14px; border: none; border-radius: 8px; background: #2F5D50; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 12px; display: flex; align-items: center; justify-content: space-between">{{r.kst}}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            </button>
+          </sc-if>
+          <sc-if value="{{r.free}}" hint-placeholder-val="{{true}}">
+            <button aria-pressed="false" onClick="{{r.toggle}}" style="height: 44px; padding: 0 14px; box-sizing: border-box; border: 1px solid #E3E1DA; border-radius: 8px; background: #FFFFFF; color: #2F5D50; font-family: 'IBM Plex Mono', monospace; font-size: 12px; display: flex; align-items: center; text-align: left">{{r.kst}}</button>
+          </sc-if>
+          <sc-if value="{{r.off}}" hint-placeholder-val="{{false}}">
+            <div style="height: 44px; padding: 0 14px; box-sizing: border-box; border: 1px solid #ECEAE3; border-radius: 8px; background: repeating-linear-gradient(135deg, #ECEAE3 0 3px, #F7F6F2 3px 7px); color: #6B6A65; font-size: 12px; display: flex; align-items: center"><span style="background: #F7F6F2; padding: 2px 6px; border-radius: 4px">Instructor unavailable</span></div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+
+  <footer style="flex-shrink: 0; box-sizing: border-box; padding: 12px 20px 34px; display: flex; align-items: center; gap: 12px; border-top: 1px solid #E3E1DA; background: #F7F6F2">
+    <button aria-label="Back" style="width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #E3E1DA; border-radius: 10px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </button>
+    <button style="flex-grow: 1; height: 48px; background: #2F5D50; color: #FFFFFF; border: none; border-radius: 10px; font-family: inherit; font-size: 16px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px">OK <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; opacity: 0.8">· {{count}} slots</span></button>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const OFFSET = 15;
+    const HOST_START = 8;
+    const st = this.state || {};
+    const sel = st.sel || ["1-19", "1-20", "3-19", "3-20", "5-8"];
+    const day = st.day === undefined ? 1 : st.day;
+    const num = (h) => (h % 12 === 0 ? 12 : h % 12);
+    const fmt = (h) => num(h) + " " + ((h % 24) < 12 ? "AM" : "PM");
+    const toggle = (key) => {
+      const cur = sel.slice();
+      const i = cur.indexOf(key);
+      if (i >= 0) cur.splice(i, 1); else cur.push(key);
+      this.setState({ sel: cur, day: day });
+    };
+    const tabs = DAYS.map((d, i) => ({
+      label: d,
+      active: i === day,
+      idle: i !== day,
+      has: sel.some((k) => k.indexOf(i + "-") === 0),
+      pick: () => this.setState({ sel: sel, day: i })
+    }));
+    const rows = [];
+    let offStart = null;
+    for (let h = 7; h <= 22; h++) {
+      const k = h + OFFSET;
+      const kh = k % 24;
+      const off = kh < HOST_START;
+      if (off) {
+        if (offStart === null) offStart = h;
+        const nextOff = h < 22 && ((h + 1 + OFFSET) % 24) < HOST_START;
+        if (!nextOff) {
+          rows.push({ label: fmt(offStart) + "–" + fmt(h + 1).replace(" ", " "), off: true, on: false, free: false, kst: "", toggle: null });
+          offStart = null;
+        }
+        continue;
+      }
+      const key = day + "-" + h;
+      const on = sel.indexOf(key) >= 0;
+      const kDay = DAYS[(day + (k >= 24 ? 1 : 0)) % 7];
+      rows.push({ label: fmt(h), off: false, on: on, free: !on, kst: "Seoul · " + kDay + " " + fmt(kh), toggle: () => toggle(key) });
+    }
+    return { tabs: tabs, rows: rows.slice(0, 9), count: sel.length };
+  }
+}
+</script>
+</body>
+</html>
